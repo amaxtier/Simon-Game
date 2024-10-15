@@ -33,15 +33,17 @@ function checkAnswer(currentLevel) {
         
     }
     else {
-        var wrong = new Audio("sounds/wrong.mp3");
+        if (started) {
+            var wrong = new Audio("sounds/wrong.mp3");
             wrong.play();
             $("body").addClass("game-over")
             setTimeout(function() {
                 $("body").removeClass("game-over")
             },200);
         
-        $("h1").text("Game Over, Press Any Key to Restart");
-        startOver();
+            $("h1").text("Game Over, Press Any Key to Restart");
+            startOver();
+        }   
     }
 }
 
